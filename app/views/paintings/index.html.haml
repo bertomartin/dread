@@ -1,25 +1,44 @@
-%h1 Listing paintings
 
-%table
-  %tr
-    %th Name
-    %th Description
-    %th Image
-    %th Gallery
-    %th
-    %th
-    %th
+.page-header
+  %h1.text-centered
+    Current Pieces
 
-  - @paintings.each do |painting|
-    %tr
-      %td= painting.name
-      %td= painting.description
-      %td= painting.image
-      %td= painting.gallery
-      %td= link_to 'Show', painting
-      %td= link_to 'Edit', edit_painting_path(painting)
-      %td= link_to 'Destroy', painting, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
+- @paintings.in_groups_of(2) do |works|
+  .row
+    - works.each do |painting|
+      .col-md-6
+        .thumbnail
+          = link_to (image_tag painting.image_url(:product).to_s, :class => "img-responsive"), painting_path(painting.id)
+          .caption.center-block.painting
+            %h3=painting.name
+            %p=simple_format painting.description
+            %p
+              =link_to "View details", painting_path(painting.id), :class => "btn btn-default"
 
-= link_to 'New Painting', new_painting_path
+
+-#%h1 Listing paintings
+
+-#%table
+  -#%tr
+    -#%th Name
+    -#%th Description
+    -#%th Image
+    -#%th Gallery
+    -#%th
+    -#%th
+    -#%th
+
+  -#- @paintings.each do |painting|
+    -#%tr
+      -#%td= painting.name
+      -#%td= painting.description
+      -#%td= painting.image
+      -#%td= painting.gallery
+      -#%td= link_to 'Show', painting
+      -#%td= link_to 'Edit', edit_painting_path(painting)
+      -#%td= link_to 'Destroy', painting, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+-#%br
+
+-#= link_to 'New Painting', new_painting_path

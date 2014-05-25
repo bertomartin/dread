@@ -44,7 +44,7 @@ gem "devise"
 gem 'mail_form'
 
 # image upload
-gem "rmagick"
+gem "rmagick", :require => 'RMagick'
 gem "carrierwave"
 
 # Use ActiveModel has_secure_password
