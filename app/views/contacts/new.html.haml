@@ -1,14 +1,18 @@
-%h1 Contact Me 
-
-=form_tag({controller: "contacts", action: "create"}, method: "post") do
-  .form-group
-    =label_tag(:name, "Your Name")
-    =text_field_tag(:name, nil, class: 'form-control')
-  .form-group
-    =label_tag(:email, "Your Email Address")
-    =text_field_tag(:email, nil, class: 'form-control')
-  .form-group
-    =label_tag(:message, "Your message")
-    =text_area_tag 'message', nil, class: 'form-control', rows: 8
-  %button.btn.btn-primary{:type => "submit"}
-    Send Message
+.page-header
+  %h1 
+    Contact Me
+    %small send me a message
+.row
+  .col-md-8
+    =form_tag({controller: "contacts", action: "create"}, method: "post") do
+      .form-group
+        =label_tag(:name, "Your Name")
+        =text_field_tag(:name, nil, class: 'form-control')
+      .form-group
+        =label_tag(:email, "Your Email Address")
+        =text_field_tag(:email, nil, class: 'form-control')
+      .form-group
+        =label_tag(:message, "Your message")
+        =text_area_tag 'message', nil, class: 'form-control', rows: 8
+      %button.btn.btn-primary{:type => "submit"}
+        Send Message

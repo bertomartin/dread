@@ -1,10 +1,13 @@
 /%p#notice= notice
-
-%h1
-  =@page.name
-%p
-  =simple_format @page.content
-
-= link_to 'Edit', edit_page_path(@page), :class => "btn btn-primary"
+.page-header
+  %h1
+    =@page.name
+.row
+  .col-md-8
+    %p
+      =simple_format @page.content
+.row
+  .col-md-12
+    = link_to 'Edit', edit_page_path(@page), :class => "btn btn-primary"
 /\|
 /= link_to 'Back', pages_path
