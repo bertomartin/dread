@@ -2,8 +2,34 @@
 %html
   %head
     %title Dread
+    / mobile specific meta
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"}
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
-    = yield
+    / --navbar--
+    %header.navbar.navbar-inverse.navbar-fixed-top{:role => "banner"}
+      .container
+        .navbar-header
+          %button.navbar-toggle{:type=>"button", :"data-toggle"=>"collapse", :"data-target"=>"#navbar-contents"}
+            %span.sr-only Toggle Navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          =link_to "TigersetheX", root_path, :class => "navbar-brand"
+        #navbar-contents.collapse.navbar-collapse
+          %ul.nav.navbar-nav{:role => "navigation"}
+            %li
+              =link_to "About me", page_path("about")
+            %li
+              =link_to "My Art Work", page_path("about")
+            %li
+              =link_to "Contact", page_path("about")
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              =link_to "Sign In", page_path("about")
+    .container
+      %p#notice= notice
+      =yield
+

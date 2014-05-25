@@ -6,11 +6,11 @@
         - @page.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
+  .form-group
     = f.label :name
-    = f.text_field :name
-  .field
+    = f.text_field :name, :class => "form-control"
+  .form-group
     = f.label :content
-    = f.text_area :content
-  .actions
-    = f.submit 'Save'
+    = f.text_area :content, :rows => 8, :class => "form-control"
+  %button.btn.btn-primary{:type => "submit"}
+    Save

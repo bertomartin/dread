@@ -1,12 +1,9 @@
-%p#notice= notice
+/ -- BANNER --
+%section
+  .well.well-lg.text-center
+    %h1=@home.title
+    %p.lead=@home.content
 
-%p
-  %b Title:
-  = @home.title
-%p
-  %b Content:
-  = @home.content
-
-= link_to 'Edit', edit_home_path(@home)
+= link_to 'Edit', edit_home_path(@home), :class => "btn btn-primary"
 /\|
 /= link_to 'Back', homes_path
