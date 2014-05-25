@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :homes, :except => [:index, :show]
-  get ':id', to: 'homes#show', as: :page
+  resources :pages, :except => [:index, :new]
+
+  resources :homes, :except => [:index, :new]
+  get ':id', to: 'homes#show' 
   root to: "homes#show", id: "home"
   #get :id, to: "homes#show"
 
