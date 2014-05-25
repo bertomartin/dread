@@ -27,9 +27,19 @@
             %li
               =link_to "Contact", page_path("about")
           %ul.nav.navbar-nav.navbar-right
-            %li
-              =link_to "Sign In", page_path("about")
+            -unless user_signed_in?
+              %li
+                =link_to "Sign Up", new_user_registration_path 
+              %li
+                =link_to "Sign In", new_user_session_path
+            -else
+              %li
+                %a{:href => "#"}
+                  Welcome, #{current_user.email}
+              %li
+                = link_to 'Logout', destroy_user_session_path, :method => :delete
     .container
       %p#notice= notice
+      %p#alert= alert
       =yield
 

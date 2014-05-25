@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :pages, :except => [:index, :new]
 
   resources :homes, :except => [:index, :new]
