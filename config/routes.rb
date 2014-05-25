@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :paintings
+
+  resources :galleries
+
   devise_for :users
   resources :pages, :except => [:index, :new]
 

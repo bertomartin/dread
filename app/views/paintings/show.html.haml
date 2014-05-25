@@ -1,0 +1,14 @@
+%h1
+  =@painting.name
+%p
+  =@painting.description
+%h6
+  =@painting.gallery.name
+%p 
+  Image
+  =@painting.image
+
+
+= link_to 'Edit', edit_painting_path(@painting)
+\|
+= link_to 'Back', paintings_path

@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140525042053) do
+ActiveRecord::Schema.define(version: 20140525194106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "galleries", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "homes", force: true do |t|
     t.string   "title"
@@ -33,6 +40,17 @@ ActiveRecord::Schema.define(version: 20140525042053) do
   end
 
   add_index "pages", ["permalink"], name: "index_pages_on_permalink", using: :btree
+
+  create_table "paintings", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "image"
+    t.integer  "gallery_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "paintings", ["gallery_id"], name: "index_paintings_on_gallery_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

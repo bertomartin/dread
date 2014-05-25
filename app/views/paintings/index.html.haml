@@ -1,0 +1,25 @@
+%h1 Listing paintings
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th Image
+    %th Gallery
+    %th
+    %th
+    %th
+
+  - @paintings.each do |painting|
+    %tr
+      %td= painting.name
+      %td= painting.description
+      %td= painting.image
+      %td= painting.gallery
+      %td= link_to 'Show', painting
+      %td= link_to 'Edit', edit_painting_path(painting)
+      %td= link_to 'Destroy', painting, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Painting', new_painting_path

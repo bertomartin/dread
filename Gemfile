@@ -40,7 +40,12 @@ gem 'html2haml'
 # authentication
 gem "devise"
 
+# contact form
 gem 'mail_form'
+
+# image upload
+gem "rmagick"
+gem "carrierwave"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
