@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   resources :pages, :except => [:index, :new]
 
+  get 'contacts/new', to: 'contacts#new'
+  post 'contacts/create', to: 'contacts#create', as: :create_contact
+
   resources :homes, :except => [:index, :new]
   get ':id', to: 'homes#show' 
   root to: "homes#show", id: "home"
