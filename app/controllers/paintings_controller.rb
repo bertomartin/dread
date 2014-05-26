@@ -4,7 +4,15 @@ class PaintingsController < ApplicationController
   # GET /paintings
   # GET /paintings.json
   def index
-    @paintings = Painting.all
+    if params.has_key?(:type)
+      if params[:type] == "surrealism" || params[:type] == "realism"
+        @paintings = Painting.joins(:gallery).where("galleries.name = ?", params[:type].capitalize)
+      else
+        @paintings = Painting.all
+      end
+    else
+      @paintings = Painting.all
+    end
   end
 
   # GET /paintings/1

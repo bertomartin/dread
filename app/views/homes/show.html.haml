@@ -11,9 +11,8 @@
       %h3.text-muted=cat
       - for painting in paintings
         %p
-          =link_to (image_tag painting.image_url(:thumb).to_s, :class => "img-responsive"), paintings_path(:type => cat.downcase)
-        %p
-          =painting.description
+          =link_to (image_tag painting.image_url(:product).to_s, :class => "img-responsive"), paintings_path(:type => cat.downcase), :class => "thumbnail"
+
 
 
 

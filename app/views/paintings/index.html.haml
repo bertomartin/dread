@@ -2,19 +2,42 @@
 .page-header
   %h1.text-centered
     Current Pieces
+%p
+  %ul.nav.nav-pills
+    -unless params.has_key?(:type)
+      %li.active
+        =link_to "All", paintings_path
+    -else
+      %li
+        =link_to "All", paintings_path
 
+    -if params.has_key?(:type) && params[:type] == "realism"
+      %li.active
+        =link_to "Realism", paintings_path(:type => "realism")
+    -else
+      %li
+        =link_to "Realism", paintings_path(:type => "realism")
+
+    -if params.has_key?(:type) && params[:type] == "surrealism"
+      %li.active
+        =link_to "Surrealism", paintings_path(:type => "surrealism")
+    -else
+      %li
+        =link_to "Surrealism", paintings_path(:type => "surrealism")
 
 - @paintings.in_groups_of(2) do |works|
   .row
     - works.each do |painting|
-      .col-md-6
-        .thumbnail
-          = link_to (image_tag painting.image_url(:product).to_s, :class => "img-responsive"), painting_path(painting.id)
-          .caption.center-block.painting
-            %h3=painting.name
-            %p=simple_format painting.description
-            %p
-              =link_to "View details", painting_path(painting.id), :class => "btn btn-default"
+      -if painting
+        .col-md-6
+          .thumbnail
+            = link_to (image_tag painting.image_url(:product).to_s, :class => "img-responsive"), painting_path(painting.id)
+            .caption.center-block.painting
+              %h3=painting.name
+              %p=simple_format painting.description
+              %p
+                =link_to "View details", painting_path(painting.id), :class => "btn btn-default"
+  %hr
 
 
 -#%h1 Listing paintings

@@ -47,6 +47,8 @@ gem 'mail_form'
 gem "rmagick", :require => 'RMagick'
 gem "carrierwave"
 
+gem "debugger", group: :development
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
