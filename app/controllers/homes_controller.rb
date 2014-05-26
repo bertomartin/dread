@@ -10,7 +10,8 @@ class HomesController < ApplicationController
   # GET /homes/1
   # GET /homes/1.json
   def show
-
+   @paintings = Painting.all
+   @paintings_group = @paintings.group_by { |p| p.gallery.name }
   end
 
   # GET /homes/new
