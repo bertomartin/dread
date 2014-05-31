@@ -47,13 +47,16 @@ gem 'mail_form'
 gem "rmagick", :require => 'RMagick'
 gem "carrierwave"
 
-gem "debugger", group: :development
+gem "debugger"
+gem "capistrano", "2.15.4"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+group :production do
+  gem 'unicorn'
+end
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
