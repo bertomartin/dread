@@ -12,6 +12,8 @@ set :scm, "git"
 set :repository, "git@github.com:bertomartin/#{application}.git"
 set :branch, "master"
 
+set :rails_env, "production"
+
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 # ssh_options[:port] = 4321
